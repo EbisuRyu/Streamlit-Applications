@@ -63,9 +63,11 @@ def levenshtein_distance(source: str, target: str):
         # Insertion
         candidate_2 = distance_matrix[delete_axis][insert_axis - 1] + 1
         sub_cost = 0 if target[insert_axis -
-                               1] == source[delete_axis - 1] else 1  # Substitution
+                               # Substitution
+                               1] == source[delete_axis - 1] else 1
         candidate_3 = distance_matrix[delete_axis -
-                                      1][insert_axis - 1] + sub_cost  # Substitution or match
+                                      # Substitution or match
+                                      1][insert_axis - 1] + sub_cost
 
         # Return the minimum of the three candidates
         return min(candidate_1, candidate_2, candidate_3)
